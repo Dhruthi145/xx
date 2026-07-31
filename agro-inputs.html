@@ -35,6 +35,7 @@
             <a href="agro-industries.html">Agro Industries</a>
             <a href="export-import.html">Export &amp; Import</a>
             <a href="fmcg.html">FMCG</a>
+            <a href="farms.html">Farms</a>
           </div>
         </div>
         <a href="index.html#Blogs">Blogs</a>
@@ -57,7 +58,7 @@
             style="font-size: 1.35rem; font-weight: 700; color: var(--yellow); margin-bottom: 1rem;">Empowering
             Agriculture. Enabling Growth.</p>
           <p class="hero-text">Agriculture is the backbone of every nation, and every successful harvest begins with the
-            right support. At Agro Inputs, we help farmers and agribusinesses grow with confidence by providing quality
+            right support. At Viraj Agro, we help farmers and agribusinesses grow with confidence by providing quality
             agricultural inputs, modern farming solutions, technical expertise, and dependable market support.</p>
           <p class="hero-text" style="margin-top: 0.8rem;">As part of Viraj Holdings, our purpose is simple—to build a
             stronger agricultural ecosystem where farmers, dealers, distributors, and business partners grow together.
@@ -74,13 +75,17 @@
     <section class="section business-page-section" id="who-we-are">
       <div class="container split-grid">
         <div class="about-media reveal-left">
-          <img src="assets/agro-inputs.svg" alt="Agro Inputs operations" loading="lazy" />
+          <div class="wwa-slideshow">
+            <img src="assets/wwa1.jpg" alt="Agro Inputs team training" class="wwa-slide active" />
+            <img src="assets/wwa2.jpg" alt="Agro Inputs office and products" class="wwa-slide" />
+            <img src="assets/wwa3.jpg" alt="Viraj Agro Inputs facility" class="wwa-slide" />
+          </div>
         </div>
         <div class="about-copy reveal-right">
           <p class="eyebrow">Who We Are</p>
           <h2>Committed to improving productivity, profitability, and sustainability across the farming ecosystem.</h2>
           <div class="feature-text-block">
-            <p>Agro Inputs is an integrated agricultural solutions company committed to improving productivity,
+            <p>Viraj Agro is an integrated agricultural solutions company committed to improving productivity,
               profitability, and sustainability across the farming ecosystem.</p>
             <p>We believe agriculture is not just about selling products. It is about understanding crops, solving field
               challenges, improving yields, and building lasting relationships. Every product we supply and every
@@ -290,7 +295,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">Why Choose Us</p>
-          <h2>Why Choose Agro Inputs?</h2>
+          <h2>Why Choose Viraj Agro Inputs?</h2>
         </div>
 
         <div class="card-grid">
@@ -379,8 +384,10 @@
     <div class="container footer-grid">
       <div>
         <a href="index.html" class="brand footer-brand"><img src="logo.png" alt="Viraj Holdings logo" /></a>
-        <p>Building integrated enterprises for sustainable growth through quality, innovation and long-term
-          partnerships.</p>
+        <p>Building Integrated Enterprises Across Agriculture & Industry
+        </p>
+        <p><b>Survey No: 290, Veerapur, Gadwal, Jogulamba Gadwal, Telangana, India - 509125
+          </b></p>
       </div>
       <div>
         <h3>About</h3>
@@ -415,6 +422,19 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Who We Are – Image Slideshow (2s per image)
+    (function () {
+      const slides = document.querySelectorAll('.wwa-slide');
+      if (!slides.length) return;
+      let current = 0;
+      setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 2000);
+    })();
+  </script>
 </body>
 
 </html>
