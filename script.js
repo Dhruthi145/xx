@@ -117,3 +117,43 @@ if (heroVisual) {
     heroVisual.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg)';
   });
 }
+
+// Global handler: clicking any 'Enquiry' button opens Google Form
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a, button');
+  if (link && link.textContent.trim().toLowerCase() === 'enquiry') {
+    event.preventDefault();
+    window.open('https://forms.gle/zG38K1397KCMoDQH8', '_blank', 'noopener,noreferrer');
+  }
+});
+
+// FAQ accordion — works identically on desktop and mobile
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach((item) => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    // close all other open items (accordion behavior)
+    faqItems.forEach((other) => {
+      if (other !== item) {
+        other.classList.remove('open');
+        other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        other.querySelector('.faq-answer').style.maxHeight = null;
+      }
+    });
+
+    if (isOpen) {
+      item.classList.remove('open');
+      question.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = null;
+    } else {
+      item.classList.add('open');
+      question.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = `${answer.scrollHeight}px`;
+    }
+  });
+});

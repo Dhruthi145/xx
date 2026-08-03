@@ -6,13 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FMCG | Viraj Holdings</title>
   <meta name="description"
-    content="Viraj Holdings’ FMCG business delivers quality consumer products supported by integrated manufacturing and supply capabilities." />
+    content="Forefathers Naturals by Viraj Holdings delivers premium natural grains, pulses, cereals, millets and other natural food essentials, crafted with uncompromising quality and timeless heritage." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- FMCG page-specific overrides: full-bleed hero background + overview slideshow --- */
+    .hero.business-page-hero.fmcg-hero {
+      position: relative;
+      overflow: hidden;
+      background-color: #2e3a1a;
+      background-image: none !important;
+
+      /* ====== EDIT THESE TO REPOSITION / RESIZE THE LOGO ====== */
+      --logo-top: 8%;
+      /* space from top of hero */
+      --logo-right: 5%;
+      /* space from right of hero */
+      --logo-bottom: -17%;
+      /* space from bottom of hero */
+      --logo-left: 55%;
+      /* space from left of hero (bigger = logo box starts further right) */
+      --logo-size: 200%;
+      /* max width of the logo inside its box */
+      /* ========================================================= */
+    }
+
+    .fmcg-hero-logo-wrap {
+      position: absolute;
+      top: var(--logo-top);
+      right: var(--logo-right);
+      bottom: var(--logo-bottom);
+      left: var(--logo-left);
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fmcg-hero-logo {
+      max-width: var(--logo-size);
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .fmcg-hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg,
+          rgba(18, 24, 10, 0.82) 0%,
+          rgba(18, 24, 10, 0.6) 32%,
+          rgba(18, 24, 10, 0.25) 55%,
+          rgba(18, 24, 10, 0) 72%);
+    }
+
+    .fmcg-hero .business-page-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .fmcg-slideshow {
+      position: relative;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 420px;
+      width: 100%;
+    }
+
+    .fmcg-slideshow .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fmcg-slideshow .slide.active {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,12 +115,11 @@
             <a href="agro-inputs.html">Agro Inputs</a>
             <a href="commodity-trading.html">Commodity Trading</a>
             <a href="agro-industries.html">Agro Industries</a>
-            <a href="export-import.html">Export &amp; Import</a>
             <a href="fmcg.html">FMCG</a>
+            <a href="export-import.html">Export &amp; Import</a>
             <a href="farms.html">Farms</a>
           </div>
         </div>
-        <a href="index.html#Blogs">Blogs</a>
         <a href="index.html#contact">Contact</a>
         <a href="index.html#contact" class="button button-solid nav-cta">Partner With Us</a>
       </div>
@@ -48,16 +129,20 @@
   <main>
     <section class="hero business-page-hero fmcg-hero">
       <div class="hero-overlay"></div>
+      <div class="fmcg-hero-logo-wrap">
+        <img src="assets/fflogo.png" alt="Forefathers Naturals - Rooted in Tradition" class="fmcg-hero-logo" />
+      </div>
       <div class="container hero-content business-page-content">
         <div class="hero-copy reveal">
           <div class="page-breadcrumb"><a href="index.html">Home</a><span>/</span><span>FMCG</span></div>
           <p class="eyebrow">Business Vertical</p>
           <h1>FMCG</h1>
-          <p class="hero-text">Delivering consumer-focused products backed by quality manufacturing, reliable supply and
-            a strong integrated ecosystem.</p>
+          <p class="hero-text">Delivering premium natural grains, pulses, cereals, millets, and other natural food
+            essentials, crafted with uncompromising quality and timeless heritage.</p>
           <div class="hero-actions">
             <a href="#overview" class="button button-solid">Discover More</a>
-            <a href="mailto:contact@virajholdings.com" class="button button-outline">Get in Touch</a>
+            <a href="https://forms.gle/zG38K1397KCMoDQH8" target="_blank" rel="noreferrer"
+              class="button button-outline">Enquiry</a>
           </div>
         </div>
       </div>
@@ -65,19 +150,27 @@
 
     <section class="section business-page-section" id="overview">
       <div class="container split-grid">
-        <div class="about-media reveal-left">
-          <img src="https://images.pexels.com/photos/264636/pexels-photo-264636.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="FMCG packaging and consumer product operations" loading="lazy"
-            style="border-radius:1.5rem; box-shadow:var(--shadow); object-fit:cover; min-height:420px; width:100%;" />
+        <div class="fmcg-slideshow reveal-left" id="fmcgSlideshow">
+          <img src="assets/o1.jpg" alt="Forefathers Naturals premium rice packaging box" class="slide active"
+            loading="lazy" />
+          <img src="assets/o2.jpg" alt="Forefathers Naturals premium rice drawstring bag" class="slide"
+            loading="lazy" />
+          <img src="assets/o3.jpg" alt="Forefathers Naturals premium rice drawstring bag" class="slide"
+            loading="lazy" />
+          <img src="assets/o4.jpg" alt="Forefathers Naturals premium rice drawstring bag" class="slide"
+            loading="lazy" />
+          <img src="assets/o5.jpg" alt="Forefathers Naturals premium coffee bottle" class="slide" loading="lazy" />
         </div>
         <div class="about-copy reveal-right">
           <p class="eyebrow">Overview</p>
-          <h2>Creating quality consumer products with an integrated supply backbone.</h2>
+          <h2>Introducing Forefathers Naturals — Rooted in Tradition</h2>
           <div class="feature-text-block">
-            <p>Viraj Holdings’ FMCG vertical brings quality products to consumers through a combination of strong
-              sourcing, manufacturing strength and efficient distribution.</p>
-            <p>The business is grounded in consistent product quality, dependable supply and thoughtful brand
-              development that supports growth in competitive markets.</p>
+            <p>Viraj Holding's "Forefathers Naturals" is a premium FMCG brand dedicated to bringing the finest
+              natural products to modern consumers. Inspired by generations of wisdom and crafted with
+              uncompromising quality, we deliver products that celebrate purity, authenticity, healthy and
+              exceptional taste.</p>
+            <p>Every product reflects our commitment to responsible sourcing, meticulous craftsmanship, and
+              world-class standards—creating experiences that are timeless, trustworthy, and naturally premium.</p>
           </div>
         </div>
       </div>
@@ -87,38 +180,38 @@
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">Business Strengths</p>
-          <h2>Built for consumer trust and market relevance.</h2>
+          <h2>Built on Heritage. Driven by Excellence.</h2>
         </div>
         <div class="model-grid">
           <article class="model-card reveal">
-            <div class="value-icon">🧴</div>
-            <h3>Consumer Products</h3>
-            <p>Quality-led offerings shaped around consumer expectations and usability.</p>
+            <div class="value-icon">🌾</div>
+            <h3>Premium Quality</h3>
+            <p>Carefully selected ingredients that meet uncompromising quality standards.</p>
           </article>
           <article class="model-card reveal">
-            <div class="value-icon">📦</div>
-            <h3>Packaging</h3>
-            <p>Practical and attractive packaging that protects and presents products well.</p>
+            <div class="value-icon">🌍</div>
+            <h3>Authentic Sourcing</h3>
+            <p>Responsibly sourced from trusted farms and growers across globally.</p>
           </article>
           <article class="model-card reveal">
-            <div class="value-icon">🚚</div>
-            <h3>Distribution</h3>
-            <p>Dependable channel reach that supports broad market coverage.</p>
+            <div class="value-icon">💧</div>
+            <h3>Natural Purity</h3>
+            <p>Minimal processing to preserve nature's original goodness and flavor.</p>
           </article>
           <article class="model-card reveal">
-            <div class="value-icon">🏪</div>
-            <h3>Retail Supply</h3>
-            <p>Streamlined supply that strengthens availability and responsiveness.</p>
+            <div class="value-icon">🛠️</div>
+            <h3>Craftsmanship</h3>
+            <p>Traditional expertise combined with modern manufacturing excellence.</p>
           </article>
           <article class="model-card reveal">
-            <div class="value-icon">💡</div>
-            <h3>Brand Development</h3>
-            <p>Brand growth supported by quality, consistency and customer connection.</p>
+            <div class="value-icon">🌱</div>
+            <h3>Sustainable Practices</h3>
+            <p>Committed to ethical sourcing and environmentally responsible operations.</p>
           </article>
           <article class="model-card reveal">
             <div class="value-icon">🤝</div>
-            <h3>Customer Focus</h3>
-            <p>Products and services shaped around trust, satisfaction and relevance.</p>
+            <h3>Customer Trust</h3>
+            <p>Built on transparency, consistency, and long-term relationships.</p>
           </article>
         </div>
       </div>
@@ -132,7 +225,8 @@
           <p>See how quality and integrated operations come together in consumer-facing products.</p>
         </div>
         <div class="cta-actions">
-          <a href="mailto:contact@virajholdings.com" class="button button-solid">Contact Us</a>
+          <a href="https://forms.gle/zG38K1397KCMoDQH8" target="_blank" rel="noreferrer"
+            class="button button-solid">Enquiry</a>
           <a href="index.html#businesses" class="button button-outline light">Explore All Businesses</a>
         </div>
       </div>
@@ -143,7 +237,8 @@
     <div class="container footer-grid">
       <div>
         <a href="index.html" class="brand footer-brand"><img src="logo.png" alt="Viraj Holdings logo" /></a>
-        <p>Building Integrated Enterprises Across Agriculture & Industry
+        <p><b>Viraj Agro Inputs Pvt. Ltd.</b></p>
+        <p>Empowering Agriculture Connecting Global Markets
         </p>
         <p><b>Survey No: 290, Veerapur, Gadwal, Jogulamba Gadwal, Telangana, India - 509125
           </b></p>
@@ -159,7 +254,7 @@
       <div>
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="index.html#Blogs">Blogs & Insights</a></li>
+
           <li><a href="index.html#contact">Contact</a></li>
           <li><a href="#top">Back to Top</a></li>
         </ul>
@@ -168,7 +263,8 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:contact@virajholdings.com">contact@virajholdings.com</a></li>
-          <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/company/viraj-agro-inputs-private-limited" target="_blank"
+              rel="noreferrer">LinkedIn</a></li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
@@ -181,6 +277,18 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('#fmcgSlideshow .slide');
+      if (slides.length < 2) return;
+      var current = 0;
+      setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 2000);
+    })();
+  </script>
 </body>
 
 </html>
