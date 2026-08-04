@@ -75,8 +75,16 @@
     <section class="section business-page-section" id="who-we-are">
       <div class="container split-grid">
         <div class="about-media reveal-left">
-          <img src="https://images.unsplash.com/photo-1724597500306-a4cbb7d1324e?auto=format&fit=crop&w=1200&q=80"
-            alt="Aerial view of a cargo ship carrying containers across the ocean" loading="lazy" />
+          <div class="ei-slideshow wwa-slideshow">
+            <img src="https://images.unsplash.com/photo-1724597500306-a4cbb7d1324e?auto=format&fit=crop&w=1200&q=80"
+              class="ei-slide wwa-slide active" alt="Cargo Ship">
+
+            <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80"
+              class="ei-slide wwa-slide" alt="Shipping Containers">
+
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80"
+              class="ei-slide wwa-slide" alt="Global Logistics">
+          </div>
         </div>
         <div class="about-copy reveal-right">
           <p class="eyebrow">Who We Are</p>
@@ -267,7 +275,7 @@
         </div>
 
         <div
-          style="margin-top: 2.2rem; text-align: center; background: white; border: 1px dashed var(--green); padding: 1.4rem 2rem; border-radius: 1.2rem;"
+          style="margin-top: 2.2rem; text-align: center; background: linear-gradient(135deg, #f4faf1 0%, #e6f3dc 100%); border: 1px solid rgba(30,110,2,0.2); padding: 1.4rem 2rem; border-radius: 1.2rem;"
           class="reveal">
           <p style="margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--heading);">
             Whether you are sourcing raw materials, building an export program, or seeking a dependable import
@@ -370,10 +378,10 @@
     <div class="container footer-grid">
       <div>
         <a href="index.html" class="brand footer-brand"><img src="logo.png" alt="Viraj Holdings logo" /></a>
-        <p><b>Viraj Agro Inputs Pvt. Ltd.</b></p>
-        <p>Empowering Agriculture Connecting Global Markets
+        <p><b>Viraj Agro Inputs Private Limited</b></p>
+        <p>Empowering Agriculture.Connecting Global Markets
         </p>
-        <p><b>Survey No: 290, Veerapur, Gadwal, Jogulamba Gadwal, Telangana, India - 509125
+        <p><b>Survey No: 290, Veerapur, Gadwal, Jogulamba Gadwal dist, Telangana, India - 509125
           </b></p>
       </div>
       <div>
@@ -396,8 +404,16 @@
         <h3>Contact</h3>
         <ul>
           <li><a href="mailto:contact@virajholdings.com">contact@virajholdings.com</a></li>
-          <li><a href="https://www.linkedin.com/company/viraj-agro-inputs-private-limited" target="_blank"
-              rel="noreferrer">LinkedIn</a></li>
+          <li>
+            <a href="https://www.linkedin.com/company/viraj-agro-inputs-private-limited" target="_blank"
+              rel="noreferrer" style="display:flex; align-items:center; gap:8px;">
+
+              <img src="https://img.icons8.com/?size=96&id=13930&format=png" alt="LinkedIn"
+                style="width:20px; height:20px;">
+
+              LinkedIn
+            </a>
+          </li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
@@ -410,6 +426,19 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Export Import – Overview Slideshow (2s transition per image)
+    (function () {
+      const slides = document.querySelectorAll('.ei-slide');
+      if (!slides.length) return;
+      let current = 0;
+      setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 2000);
+    })();
+  </script>
 </body>
 
 </html>
