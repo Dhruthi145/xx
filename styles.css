@@ -1904,3 +1904,160 @@ strong[data-count]::after {
 .about-slider .slide.active {
   opacity: 1;
 }
+
+/* Foundation image (About page) — desktop base styling, matches previous inline style */
+.foundation-img {
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+  min-height: 420px;
+  width: 100%;
+  display: block;
+}
+
+/* Mobile fix: show full image instead of cropping it, for both
+   "About Viraj Holdings" (index.html) and "Our Foundation" (about.html) */
+@media (max-width: 780px) {
+
+  .about .about-media img,
+  .about-story-section .about-media img,
+  .foundation-img {
+    object-fit: contain;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+    background: var(--surface);
+  }
+}
+
+/* ==========================================
+   FMCG Page Specific Hero Styles
+   ========================================== */
+
+.hero.business-page-hero.fmcg-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #2e3a1a;
+  background-image: none !important;
+
+  /* Desktop image positioning controls */
+  --logo-top: 8%;
+  --logo-right: 5%;
+  --logo-bottom: -17%;
+  --logo-left: 55%;
+  --logo-size: 200%;
+}
+
+/* Image Wrapper Positioning */
+.fmcg-hero-logo-wrap {
+  position: absolute;
+  top: var(--logo-top);
+  right: var(--logo-right);
+  bottom: var(--logo-bottom);
+  left: var(--logo-left);
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fmcg-hero-logo {
+  max-width: var(--logo-size);
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hide mobile image on desktop by default */
+.fmcg-hero-logo.mobile-logo {
+  display: none;
+}
+
+/* Dark gradient overlay for text readability */
+.fmcg-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg,
+      rgba(18, 24, 10, 0.82) 0%,
+      rgba(18, 24, 10, 0.6) 32%,
+      rgba(18, 24, 10, 0.25) 55%,
+      rgba(18, 24, 10, 0) 72%);
+}
+
+.fmcg-hero .business-page-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Overview Slideshow Styling */
+.fmcg-slideshow {
+  position: relative;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-height: 420px;
+  width: 100%;
+}
+
+.fmcg-slideshow .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fmcg-slideshow .slide.active {
+  opacity: 1;
+}
+
+@media (max-width: 780px) {
+
+  /* --- Existing mobile rules stay above --- */
+
+  /* Mobile Hero Overrides for FMCG */
+  .hero.business-page-hero.fmcg-hero {
+    background-color: #2e3a1a;
+    background-image: none !important;
+  }
+
+  .fmcg-hero .hero-overlay {
+    background: linear-gradient(180deg,
+        rgba(18, 24, 10, 0.85) 0%,
+        rgba(18, 24, 10, 0.6) 60%,
+        rgba(18, 24, 10, 0.3) 100%);
+  }
+
+  /* Swap Desktop Logo for Mobile Image */
+  .fmcg-hero-logo.desktop-logo {
+    display: none !important;
+  }
+
+  .fmcg-hero-logo.mobile-logo {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.35;
+    /* Keeps hero text clear and readable */
+  }
+
+  /* Position Mobile Image at Bottom Center */
+  .fmcg-hero-logo-wrap {
+    display: flex !important;
+    position: absolute !important;
+    top: 42% !important;
+    /* Adjust percentage to shift image up or down */
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+  }
+}
